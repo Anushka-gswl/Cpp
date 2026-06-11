@@ -13,13 +13,20 @@ int main() {
 
     int smallest = INT_MAX ;
     int largest = INT_MIN ;
-
-    for( int i = 0; i < size; i++){
-        smallest = min (smallest, arr[i]);
-        largest = max (largest, arr[i]);
+    int smallest_idx = INT_MAX, largest_idx = INT_MIN;
+    
+    for (int i = 0; i < size; i++){
+        if( arr[i] < smallest){
+            smallest = arr[i];
+            smallest_idx = i;
+        }
+        if( arr[i] > largest){
+            largest = arr[i];
+            largest_idx = i;
+        }
     }
+    cout<<"Minimum element is "<<smallest<<" at index "<<smallest_idx<<'\n';
+    cout<<"Maximum element is "<<largest<<" at index "<<largest_idx<<'\n';
 
-    cout<<"Minimum element is: "<<smallest<<'\n';
-    cout<<"Maximum element is: "<<largest<<'\n';
     return 0;
 }
