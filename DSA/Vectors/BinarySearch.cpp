@@ -2,6 +2,7 @@
 #include <vector>
 using namespace std;
 
+//Without Recursion - More Optimized than recursion as : TC => O(log n), SC=> O(n)
 int BinarySearch(vector<int> arr, int n, int target){
     int st = 0, end = n-1;
     while( st <= end){
@@ -17,38 +18,40 @@ int BinarySearch(vector<int> arr, int n, int target){
     return -1;
 }
 
+//With Recursion - Less Optimized due to recursive call stack in memory: TC => O(log n), SC=> O(log n)
+int BinarySrch( vector<int> arr, int target, int st, int end){
+    int mid = st + (end - st) / 2;
+    while( st <= end){
+        if ( target == arr[mid]){
+            return mid;
+        } else if( target > arr[mid]){
+            return BinarySrch(arr, target, mid + 1, end);
+        } else{
+            return BinarySrch( arr, target, st, mid - 1);
+        }
+    }
+    return -1;
+}
+
 int main() {
-    int m, n;
-    cout<<"Enter size of first array: ";
-    cin>>m;
-
-    vector<int> arr1(m);
-
-    cout<<"Enter elements of first array:\n";
-    for(int i = 0; i < m; i++){
-        cin>>arr1[i];
-    }
-
-    int target1, target2;
-
-    cout<<"Enter target element for first array: ";
-    cin>>target1;
-
-    cout<<"Enter size of second array: ";
+    int n;
+    cout<<"Enter size of array: ";
     cin>>n;
-    
-    vector<int> arr2(n);
 
-    cout<<"Enter elements of second array:\n";
+    vector<int> arr(n);
+
+    cout<<"Enter elements of array:\n";
     for(int i = 0; i < n; i++){
-        cin>>arr2[i];
+        cin>>arr[i];
     }
-    
-    cout<<"Enter target element for second array: ";
-    cin>>target2;
 
-    int ans1 = BinarySearch(arr1, m, target1);
-    int ans2 = BinarySearch(arr2, n, target2);
+    int target;
+
+    cout<<"Enter target element: ";
+    cin>>target;
+
+    int ans1 = BinarySearch(arr, n, target);
+    int ans2 = BinarySrch(arr, target, 0, n-1);
 
     if(ans1 == -1){
         cout<<"Element doesn't exist in the array"<<'\n';
