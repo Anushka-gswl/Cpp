@@ -1,0 +1,1 @@
+//Shortcut to find number of digits in an integer number is - (int)(log(n) + 1)
