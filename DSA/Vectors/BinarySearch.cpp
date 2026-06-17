@@ -21,7 +21,7 @@ int BinarySearch(vector<int> arr, int n, int target){
 //With Recursion - Less Optimized due to recursive call stack in memory: TC => O(log n), SC=> O(log n)
 int BinarySrch( vector<int> arr, int target, int st, int end){
     int mid = st + (end - st) / 2;
-    while( st <= end){
+    if( st <= end){
         if ( target == arr[mid]){
             return mid;
         } else if( target > arr[mid]){
