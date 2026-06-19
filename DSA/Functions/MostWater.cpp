@@ -2,7 +2,8 @@
 #include <vector>
 using namespace std;
 
-int maxArea(vector<int>& height) {
+//Brute Force - gives TLE on leetcode, TC => O(n^2)
+int maxArea1(vector<int>& height) {
     int n = height.size();
     int maxWater = 0;
     for( int i = 0; i < n; i++){
@@ -11,6 +12,25 @@ int maxArea(vector<int>& height) {
             int h = min( height [i], height [j]);
             int currWater = w * h;
             maxWater = max (maxWater, currWater);
+        }
+    }
+    return maxWater;
+}
+
+//Optimized Approach - TC => O(n)
+int maxArea(vector<int>& height) {
+    int maxWater = 0;
+    int l = 0, r = height.size() - 1;
+    while ( l < r){
+        int w = r - l;
+        int ht = min ( height[l], height[r]);
+        int currWater = w * ht;
+        maxWater = max( maxWater, currWater);
+
+        if(height[l] < height[r]){
+            l++;
+        } else {
+            r--;
         }
     }
     return maxWater;
@@ -25,7 +45,7 @@ int main(){
     for(int i = 0; i < n; i++){
         cin>>height[i];
     }
-    int mw = maxArea(height);
-    cout<<"Maximum nater that can be stored is: "<<mw;
+    int mw = maxArea1(height);
+    cout<<"Maximum water that can be stored is: "<<mw;
     return 0;
 }
