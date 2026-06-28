@@ -36,11 +36,46 @@ void inOrderTraversal(Node* root){ //O(n)
     inOrderTraversal(root->right);
 }
 
+vector<int> morrisInorder(Node* root){ //O(n)
+    vector<int> ans;
+    Node* curr = root;
+    
+    while(curr){
+        if(!curr->left){
+            ans.push_back(curr->data);
+            curr = curr->right;
+        } else{
+            //find the inorder predecessor
+            Node* ip = curr->left;
+            if(ip->right && ip->right != curr){
+                ip = ip->right;
+            }
+
+            if(!ip->right){
+                ip->right = curr; //create thread
+                curr = curr->left;
+            } else{
+                ip->right = NULL; //destroy thread
+                ans.push_back(curr->data);
+                curr = curr->right;
+            }
+        }
+    }
+    return ans;
+}
+
 int main(){
     vector<int> preOrder = {1, 2, -1, -1, 3, 4, -1, -1, 5, -1, -1};
     Node* root = buildTree(preOrder);
 
     inOrderTraversal(root);
+    
+    cout << '\n';
+    
+    vector<int> ans = morrisInorder(root);
+    for(int a : ans){
+        cout << a << " ";
+    }
 
     return 0;
 }
