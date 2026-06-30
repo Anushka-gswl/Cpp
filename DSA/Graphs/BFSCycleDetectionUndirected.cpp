@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <list>
+#include <queue>
 using namespace std;
 
 class Graph{
@@ -18,15 +19,23 @@ public:
         l[v].push_back(u);
     }
 
-    bool isCycleDFS(int u, vector<bool>& vis, int par){
-        vis[u] = true;
-        for(int v : l[u]){
-            if(!vis[v]){
-                if(isCycleDFS(v, vis, u)){
-                    return true;
+    bool isCycleBFS(int src, vector<bool>& vis){
+        queue<pair<int,int>> q;
+        q.push({src, -1});
+        vis[src] = true;
+        while(!q.empty()){
+            int u = q.front().first;
+            int par = q.front().second;
+            q.pop();
+            for(int v : l[u]){
+                if(!vis[v]){
+                    q.push({v, u});
+                    vis[v] = true;
+                } else{
+                    if(v != par){
+                        return true;
+                    }
                 }
-            } else if(v != par){
-                return true;
             }
         }
         return false;
@@ -36,7 +45,7 @@ public:
         vector<bool> vis(V, false);
         for(int i = 0; i < V; i++){
             if(!vis[i]){
-                if(isCycleDFS(0, vis, -1)){
+                if(isCycleBFS(i, vis)){
                     return true;
                 }
             }
