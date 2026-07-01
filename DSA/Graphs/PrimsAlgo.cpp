@@ -7,7 +7,7 @@ using namespace std;
 //Prim's Algo is only used for undirected, weighted and connected graphs
 //Greedy Algo
 
-//
+//TC => O(E log V), SC => O(V + E)
 
 class Edge{
 public:
