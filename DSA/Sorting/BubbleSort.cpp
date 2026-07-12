@@ -12,6 +12,7 @@ void bubbleSort( vector<int> &arr){
                 isSwap = true;
             }
         }
+        
         if (!isSwap ){
             return;
         }
