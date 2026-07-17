@@ -7,7 +7,7 @@ void selectionSort( vector<int> &arr){
     for( int i = 0; i< n - 1; i++){
         int smallest_idx = i;
         for( int j = i + 1; j < n; j++){
-            if( arr[j] < arr[smallest_idx]){  //for descending order we use - ( arr[j] > arr[largest_idx])
+            if( arr[j] < arr[smallest_idx]){  //for descending order array we use - ( arr[j] > arr[largest_idx])
                 smallest_idx = j;
             }
         }
