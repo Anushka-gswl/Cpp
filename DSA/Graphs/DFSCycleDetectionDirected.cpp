@@ -2,7 +2,7 @@
 #include <vector>
 #include <list>
 using namespace std;
-//Cycle Detection in directed Graph
+//Cycle Detection in directed Graph using DFS
 class Graph{
     int V;
     list<int> *l;
