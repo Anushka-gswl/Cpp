@@ -56,7 +56,6 @@ int main(){
     g.addEdge(0, 2);
     g.addEdge(2, 3);
 
-
     cout << (g.isCycle() ? "True" : "False");
     return 0;
 }
