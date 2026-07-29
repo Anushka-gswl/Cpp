@@ -13,7 +13,7 @@ public:
                 sum += digit;
                 num /= 10; 
             }
-            if(sum % 3 == 0 && sum % 2 == 0){
+            if(sum % 3 == 0 && i % 2 == 0){
                 count++;
             }
         }
