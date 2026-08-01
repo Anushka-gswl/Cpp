@@ -3,7 +3,6 @@
 using namespace std;
 
 //TC => O(n * log n), SC => O(n)
-
 void merge(vector<int> &arr, int mid, int st, int end){
     vector<int> temp;
     int i = st, j = mid + 1;

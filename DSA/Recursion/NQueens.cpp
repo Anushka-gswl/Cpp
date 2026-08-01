@@ -9,18 +9,21 @@ bool isSafe(vector<string> &board, int row, int col, int n){ //TC => O(n)
             return false;
         }
     }
+
     //Vertical Check
     for(int i = 0; i < n; i++){
         if(board[i][col] == 'Q'){
             return false;
         }
     }
+
     //Left Diagonal Check
     for(int i = row, j = col; i >=0 && j>= 0; i--, j--){
         if(board[i][j] == 'Q'){
             return false;
         }
     }
+    
     //Right Diagonal Check
     for(int i = row, j = col; i >= 0 && j < n; i--, j++){
         if(board[i][j] == 'Q'){
