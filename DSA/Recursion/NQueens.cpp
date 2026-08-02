@@ -25,6 +25,7 @@ bool isSafe(vector<string> &board, int row, int col, int n){ //TC => O(n)
     }
     
     //Right Diagonal Check
+    
     for(int i = row, j = col; i >= 0 && j < n; i--, j++){
         if(board[i][j] == 'Q'){
             return false;
