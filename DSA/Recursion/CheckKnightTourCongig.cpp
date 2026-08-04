@@ -3,7 +3,6 @@
 using namespace std;
 
 //RECURSION AND SIMULATION
-
 //Method 1 - TC => O(n ^ 4), SC => O(n ^ 2)
 bool isValid(int currR, int currC, int nextR, int nextC){
     if((nextR == currR - 1 && nextC == currC - 2) 
