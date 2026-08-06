@@ -46,7 +46,6 @@ bool checkValidGrid(vector<vector<int>>& grid) {
 }
 
 //RECURSION AND BACKTRACKING
-
 //Method 2 - TC => O(8 ^ (n ^ 2)), SC => O(n ^ 2)
 bool isValid(vector<vector<int>> &grid, int r, int c, int expMoveVal){
     int n = grid.size();
