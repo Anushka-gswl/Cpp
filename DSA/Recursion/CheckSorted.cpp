@@ -2,7 +2,8 @@
 #include <vector>
 using namespace std;
 
-bool isSorted(vector<int> arr, int n){ //TC => O(n), SC => O(n)
+bool isSorted(vector<int> arr, int n){ 
+    //TC => O(n), SC => O(n)
     if(n == 0 || n == 1){
         return true;
     }
