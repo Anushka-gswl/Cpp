@@ -9,7 +9,6 @@ bool isSorted(vector<int> arr, int n){
     }
     return (arr[n - 1] >= arr[n - 2]) && isSorted(arr, n - 1);
 }
-
 int main(){
     int n;
     cout << "Enter size of array: ";
